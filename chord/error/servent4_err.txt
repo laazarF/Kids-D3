@@ -1,0 +1,5 @@
+17:01:09 - Sumnjamo da je čvor 1300 pao. Pitaćemo buddy-ja da proveri.
+17:01:12 - Sumnjamo da je čvor 1200 pao. Pitaćemo buddy-ja da proveri.
+17:01:33 - Sumnjamo da je čvor 1300 pao. Pitaćemo buddy-ja da proveri.
+17:01:36 - Sumnjamo da je čvor 1200 pao. Pitaćemo buddy-ja da proveri.
+17:01:39 - Čvor 1300 potvrđeno pao. Pokrećemo LEAVE za njega.

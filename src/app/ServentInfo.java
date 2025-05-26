@@ -31,6 +31,10 @@ public class ServentInfo implements Serializable {
 	public int getChordId() {
 		return chordId;
 	}
+
+	public int getId() {
+		return listenerPort;
+	}
 	
 	@Override
 	public String toString() {

@@ -24,6 +24,11 @@ public class NewNodeHandler implements MessageHandler {
 	@Override
 	public void run() {
 		if (clientMessage.getMessageType() == MessageType.NEW_NODE) {
+			if (AppConfig.mutex != null && AppConfig.hasToken()) {
+				AppConfig.mutex.requestCS();
+			} else {
+				AppConfig.timestampedErrorPrint("Mutual exclusion not initialized or token not received yet. Skipping requestCS for now.");
+			}
 			int newNodePort = clientMessage.getSenderPort();
 			ServentInfo newNodeInfo = new ServentInfo("localhost", newNodePort);
 			
@@ -93,7 +98,11 @@ public class NewNodeHandler implements MessageHandler {
 				NewNodeMessage nnm = new NewNodeMessage(newNodePort, nextNode.getListenerPort());
 				MessageUtil.sendMessage(nnm);
 			}
-			
+			if (AppConfig.mutex != null && AppConfig.hasToken()) {
+				AppConfig.mutex.releaseCS();
+			} else {
+				AppConfig.timestampedErrorPrint("Mutual exclusion not initialized or token not received yet. Skipping requestCS for now.");
+			}
 		} else {
 			AppConfig.timestampedErrorPrint("NEW_NODE handler got something that is not new node message.");
 		}

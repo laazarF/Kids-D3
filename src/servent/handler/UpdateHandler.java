@@ -21,6 +21,7 @@ public class UpdateHandler implements MessageHandler {
 	@Override
 	public void run() {
 		if (clientMessage.getMessageType() == MessageType.UPDATE) {
+			AppConfig.timestampedStandardPrint("Primio UPDATE poruku od " + clientMessage.getSenderPort());
 			if (clientMessage.getSenderPort() != AppConfig.myServentInfo.getListenerPort()) {
 				ServentInfo newNodInfo = new ServentInfo("localhost", clientMessage.getSenderPort());
 				List<ServentInfo> newNodes = new ArrayList<>();

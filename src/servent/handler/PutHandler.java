@@ -15,6 +15,7 @@ public class PutHandler implements MessageHandler {
 	@Override
 	public void run() {
 		if (clientMessage.getMessageType() == MessageType.PUT) {
+			AppConfig.timestampedStandardPrint("Primio PUT poruku: " + clientMessage.getMessageText());
 			String[] splitText = clientMessage.getMessageText().split(":");
 			if (splitText.length == 2) {
 				int key = 0;

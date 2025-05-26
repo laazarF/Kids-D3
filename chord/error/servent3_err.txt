@@ -1,0 +1,9 @@
+17:00:56 - Sumnjamo da je čvor 1100 pao. Pitaćemo buddy-ja da proveri.
+17:01:02 - Sumnjamo da je čvor 1300 pao. Pitaćemo buddy-ja da proveri.
+17:01:32 - Sumnjamo da je čvor 1300 pao. Pitaćemo buddy-ja da proveri.
+17:01:37 - Couldn't send message: [24|1400|49||PONG|1600|0]
+17:01:38 - Čvor 1300 potvrđeno pao. Pokrećemo LEAVE za njega.
+Exception in thread "Thread-1" java.util.NoSuchElementException: No line found
+	at java.base/java.util.Scanner.nextLine(Scanner.java:1677)
+	at cli.CLIParser.run(CLIParser.java:58)
+	at java.base/java.lang.Thread.run(Thread.java:1575)

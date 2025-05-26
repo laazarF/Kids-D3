@@ -1,0 +1,17 @@
+# IntelliJ IDEA
+.idea/
+*.iml
+/shelf/
+/workspace.xml
+
+# Build output
+/out/
+target/
+*.class
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log

@@ -345,4 +345,41 @@ public class ChordState {
 		return -2;
 	}
 
+	public List<ServentInfo> getAllNodeInfo() {
+		return new ArrayList<>(allNodeInfo); // Vraćamo kopiju da izbegnemo slučajne izmene
+	}
+
+	public void refreshSuccessorTable(List<ServentInfo> newNodes) {
+		this.allNodeInfo.clear();
+		this.allNodeInfo.addAll(newNodes);
+
+		allNodeInfo.sort(Comparator.comparingInt(ServentInfo::getChordId));
+
+		List<ServentInfo> newList = new ArrayList<>();
+		List<ServentInfo> newList2 = new ArrayList<>();
+
+		int myId = AppConfig.myServentInfo.getChordId();
+		for (ServentInfo serventInfo : allNodeInfo) {
+			if (serventInfo.getChordId() < myId) {
+				newList2.add(serventInfo);
+			} else {
+				newList.add(serventInfo);
+			}
+		}
+
+		allNodeInfo.clear();
+		allNodeInfo.addAll(newList);
+		allNodeInfo.addAll(newList2);
+
+		if (!newList2.isEmpty()) {
+			predecessorInfo = newList2.get(newList2.size() - 1);
+		} else if (!newList.isEmpty()) {
+			predecessorInfo = newList.get(newList.size() - 1);
+		} else {
+			predecessorInfo = null;
+		}
+
+		updateSuccessorTable();
+	}
+
 }

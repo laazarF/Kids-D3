@@ -1,14 +1,164 @@
-14:38:01 - Starting servent [24|localhost|1400]
-14:38:01 - Pausing for 20000 ms
-14:38:03 - Sending message [24|1400|0||NEW_NODE|1300|4]
-14:38:04 - Got message [28|1100|4||WELCOME|1400|24]
-14:38:06 - Sending message [24|1400|1||UPDATE|1100|28]
-14:38:09 - Got message [24|1400|3|1100,1200,1300|UPDATE|1400|24]
-14:38:16 - Got message [0|1600|5|1300|UPDATE|1400|24]
-14:38:16 - Sending message [0|1600|2|1300,1400|UPDATE|1100|28]
-14:38:21 - Pausing for 10000 ms
-14:38:22 - Got message [0|1600|2|25:3|PUT|1400|24]
-14:38:23 - Sending message [24|1400|3|25:3|PUT|1100|28]
-14:38:26 - Got message [0|1600|4|25|ASK_GET|1400|24]
-14:38:27 - Sending message [0|1600|4|25|ASK_GET|1100|28]
-14:38:31 - Stopping...
+17:00:54 - Starting servent [24|localhost|1400]
+17:00:54 - Pausing for 20000 ms
+17:00:55 - Sending message [24|1400|0||NEW_NODE|1100|28]
+17:00:55 - Got message [28|1100|15||WELCOME|1400|24]
+17:00:55 - Primio WELCOME poruku od 1100
+17:00:56 - Slanje PING ka 1100
+17:00:56 - ❌ Buddy za čvor 1100 je nevažeći (isti kao target ili self).
+17:00:56 - Sending message [24|1400|1||UPDATE|1100|28]
+17:00:56 - Sending message [24|1400|2||PING|1100|28]
+17:00:57 - Got message [28|1100|19||PONG|1400|24]
+17:00:57 - Primljen PONG od 1100
+17:00:59 - Slanje PING ka 1100
+17:00:59 - Got message [4|1300|13||PING|1400|24]
+17:00:59 - Got message [24|1400|11|1100,1200,1300|UPDATE|1400|24]
+17:00:59 - Primio UPDATE poruku od 1400
+17:01:00 - Sending message [24|1400|3||PING|1100|28]
+17:01:00 - Sending message [24|1400|4||PONG|1300|4]
+17:01:00 - Got message [48|1200|22||PING|1400|24]
+17:01:01 - Got message [28|1100|21||PONG|1400|24]
+17:01:01 - Primljen PONG od 1100
+17:01:01 - Sending message [24|1400|5||PONG|1200|48]
+17:01:01 - Got message [4|1300|18||PING|1400|24]
+17:01:02 - Slanje PING ka 1300
+17:01:02 - Slanje PING ka 1100
+17:01:02 - Sending message [24|1400|6||PONG|1300|4]
+17:01:03 - Sending message [BUDDY_PING] from 1400 to 1100 (checking 1300)
+17:01:03 - Sending message [24|1400|8||PING|1100|28]
+17:01:03 - Sending message [24|1400|7||PING|1300|4]
+17:01:04 - Got message [4|1300|19||PONG|1400|24]
+17:01:04 - Primljen PONG od 1300
+17:01:04 - Got message [28|1100|24||PONG|1400|24]
+17:01:04 - Primljen PONG od 1100
+17:01:05 - Slanje PING ka 1300
+17:01:05 - Slanje PING ka 1100
+17:01:05 - Got message [4|1300|22||PING|1400|24]
+17:01:06 - Sending message [24|1400|11||PING|1100|28]
+17:01:06 - Sending message [24|1400|12||PONG|1300|4]
+17:01:06 - Got message [28|1100|27||PONG|1400|24]
+17:01:06 - Primljen PONG od 1100
+17:01:06 - Sending message [24|1400|10||PING|1300|4]
+17:01:07 - Got message [4|1300|25||PONG|1400|24]
+17:01:07 - Primljen PONG od 1300
+17:01:08 - Got message [BUDDY_PING] from 1300 to 1400 (checking 1600)
+17:01:08 - Buddy pingujem čvor 1600 po zahtevu od 1300
+17:01:08 - Got message [4|1300|28||PING|1400|24]
+17:01:08 - Slanje PING ka 1300
+17:01:08 - Slanje PING ka 1100
+17:01:09 - Sending message [24|1400|14||PONG|1300|4]
+17:01:09 - Got message [0|1600|30|1300|UPDATE|1400|24]
+17:01:09 - Primio UPDATE poruku od 1600
+17:01:09 - Sending message [24|1400|15||PING|1300|4]
+17:01:09 - Sending message [24|1400|16||PING|1100|28]
+17:01:09 - Sending message [24|1400|13||PING|1600|0]
+17:01:09 - Got message [4|1300|31||PONG|1400|24]
+17:01:09 - Primljen PONG od 1300
+17:01:09 - Sending message [0|1600|17|1300,1400|UPDATE|1100|28]
+17:01:10 - Got message [0|1600|4||PONG|1400|24]
+17:01:10 - Primljen PONG od 1600
+17:01:10 - Got message [28|1100|29||PONG|1400|24]
+17:01:10 - Primljen PONG od 1100
+17:01:11 - Got message [4|1300|34||PING|1400|24]
+17:01:11 - Slanje PING ka 1300
+17:01:11 - Slanje PING ka 1100
+17:01:12 - Sending message [24|1400|19||PING|1300|4]
+17:01:12 - Sending message [24|1400|20||PING|1100|28]
+17:01:12 - Sending message [24|1400|18||PONG|1300|4]
+17:01:12 - Got message [4|1300|36||PONG|1400|24]
+17:01:12 - Primljen PONG od 1300
+17:01:13 - Got message [28|1100|32||PONG|1400|24]
+17:01:13 - Primljen PONG od 1100
+17:01:14 - Pausing for 1000000 ms
+17:01:14 - Slanje PING ka 1300
+17:01:14 - Slanje PING ka 1100
+17:01:14 - Got message [4|1300|39||PING|1400|24]
+17:01:15 - Sending message [24|1400|21||PING|1300|4]
+17:01:15 - Sending message [24|1400|22||PING|1100|28]
+17:01:16 - Sending message [24|1400|23||PONG|1300|4]
+17:01:16 - Got message [4|1300|41||PONG|1400|24]
+17:01:16 - Primljen PONG od 1300
+17:01:16 - Got message [28|1100|35||PONG|1400|24]
+17:01:16 - Primljen PONG od 1100
+17:01:17 - Got message [4|1300|43||PING|1400|24]
+17:01:17 - Slanje PING ka 1300
+17:01:17 - Slanje PING ka 1100
+17:01:18 - Sending message [24|1400|26||PING|1100|28]
+17:01:18 - Sending message [24|1400|25||PING|1300|4]
+17:01:18 - Sending message [24|1400|24||PONG|1300|4]
+17:01:18 - Got message [28|1100|37||PONG|1400|24]
+17:01:18 - Primljen PONG od 1100
+17:01:19 - Got message [4|1300|45||PONG|1400|24]
+17:01:19 - Primljen PONG od 1300
+17:01:20 - Got message [0|1600|18|25:3|PUT|1400|24]
+17:01:20 - Primio PUT poruku: 25:3
+17:01:20 - Got message [4|1300|47||PING|1400|24]
+17:01:20 - Slanje PING ka 1300
+17:01:20 - Slanje PING ka 1100
+17:01:20 - Sending message [24|1400|27|25:3|PUT|1100|28]
+17:01:21 - Sending message [24|1400|28||PONG|1300|4]
+17:01:21 - Sending message [24|1400|30||PING|1100|28]
+17:01:21 - Sending message [24|1400|29||PING|1300|4]
+17:01:22 - Got message [28|1100|39||PONG|1400|24]
+17:01:22 - Primljen PONG od 1100
+17:01:23 - Got message [4|1300|50||PONG|1400|24]
+17:01:23 - Primljen PONG od 1300
+17:01:23 - Slanje PING ka 1300
+17:01:23 - Slanje PING ka 1100
+17:01:23 - Got message [4|1300|52||PING|1400|24]
+17:01:24 - Sending message [24|1400|31||PING|1300|4]
+17:01:24 - Sending message [24|1400|32||PING|1100|28]
+17:01:25 - Sending message [24|1400|33||PONG|1300|4]
+17:01:25 - Got message [4|1300|54||PONG|1400|24]
+17:01:25 - Primljen PONG od 1300
+17:01:25 - Got message [28|1100|42||PONG|1400|24]
+17:01:25 - Primljen PONG od 1100
+17:01:26 - Slanje PING ka 1300
+17:01:26 - Slanje PING ka 1100
+17:01:26 - Got message [4|1300|57||PING|1400|24]
+17:01:26 - Got message [0|1600|29|25|ASK_GET|1400|24]
+17:01:26 - Sending message [24|1400|34||PING|1300|4]
+17:01:27 - Sending message [24|1400|36||PONG|1300|4]
+17:01:27 - Sending message [24|1400|35||PING|1100|28]
+17:01:27 - Sending message [0|1600|37|25|ASK_GET|1100|28]
+17:01:28 - Got message [28|1100|44||PONG|1400|24]
+17:01:28 - Primljen PONG od 1100
+17:01:28 - Got message [4|1300|58||PONG|1400|24]
+17:01:28 - Primljen PONG od 1300
+17:01:28 - Got message [4|1300|61||PING|1400|24]
+17:01:29 - Slanje PING ka 1300
+17:01:29 - Slanje PING ka 1100
+17:01:29 - Sending message [24|1400|38||PONG|1300|4]
+17:01:30 - Sending message [24|1400|39||PING|1300|4]
+17:01:30 - Sending message [24|1400|40||PING|1100|28]
+17:01:30 - Got message [LEAVE] from 1300
+17:01:32 - Got message [28|1100|47||PONG|1400|24]
+17:01:32 - Primljen PONG od 1100
+17:01:32 - Slanje PING ka 1300
+17:01:32 - Slanje PING ka 1100
+17:01:32 - Got message [4|1300|65||PING|1400|24]
+17:01:33 - Sending message [24|1400|41||PING|1300|4]
+17:01:33 - Sending message [BUDDY_PING] from 1400 to 1100 (checking 1300)
+17:01:33 - Sending message [24|1400|42||PING|1100|28]
+17:01:33 - Sending message [24|1400|44||PONG|1300|4]
+17:01:34 - Got message [28|1100|50||PONG|1400|24]
+17:01:34 - Primljen PONG od 1100
+17:01:34 - Got message [LEAVE] from 1100
+17:01:35 - Slanje PING ka 1300
+17:01:35 - Slanje PING ka 1100
+17:01:35 - Got message [BUDDY_PING] from 1300 to 1400 (checking 1600)
+17:01:35 - Buddy pingujem čvor 1600 po zahtevu od 1300
+17:01:35 - Got message [4|1300|67||PING|1400|24]
+17:01:36 - Sending message [24|1400|46||PING|1100|28]
+17:01:36 - Got message [0|1600|49||PING|1400|24]
+17:01:36 - Sending message [24|1400|48||PONG|1300|4]
+17:01:36 - Sending message [24|1400|47||PING|1600|0]
+17:01:36 - Sending message [24|1400|45||PING|1300|4]
+17:01:37 - Sending message [24|1400|49||PONG|1600|0]
+17:01:38 - Got message [4|1300|71||PING|1400|24]
+17:01:38 - Slanje PING ka 1300
+17:01:38 - Slanje PING ka 1100
+17:01:39 - Sending message [24|1400|52||PING|1100|28]
+17:01:39 - Sending message [24|1400|51||PING|1300|4]
+17:01:39 - Sending message [24|1400|50||PONG|1300|4]
+17:01:41 - Got message [4|1300|73||PING|1400|24]
+17:01:42 - Sending message [24|1400|53||PONG|1300|4]

@@ -19,6 +19,8 @@ public class WelcomeHandler implements MessageHandler {
 	public void run() {
 		if (clientMessage.getMessageType() == MessageType.WELCOME) {
 			WelcomeMessage welcomeMsg = (WelcomeMessage)clientMessage;
+
+			AppConfig.timestampedStandardPrint("Primio WELCOME poruku od " + clientMessage.getSenderPort());
 			
 			AppConfig.chordState.init(welcomeMsg);
 			

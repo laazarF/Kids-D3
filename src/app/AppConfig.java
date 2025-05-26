@@ -1,11 +1,15 @@
 package app;
 
+import mutex.SuzukiKasamiMutex;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Properties;
 
 /**
@@ -47,6 +51,11 @@ public class AppConfig {
 	public static int SERVENT_COUNT;
 	
 	public static ChordState chordState;
+	public static SuzukiKasamiMutex mutex = new SuzukiKasamiMutex();
+	private static boolean hasToken = false;
+
+	public static int[] tokenNumbers;
+	public static List<ServentInfo> allServents = new ArrayList<>();
 	
 	/**
 	 * Reads a config file. Should be called once at start of app.
@@ -114,8 +123,36 @@ public class AppConfig {
 			timestampedErrorPrint("Problem reading " + portProperty + ". Exiting...");
 			System.exit(0);
 		}
+
+		for (int i = 0; i < SERVENT_COUNT; i++) {
+			int port = Integer.parseInt(properties.getProperty("servent" + i + ".port"));
+			allServents.add(new ServentInfo("localhost", port));
+		}
+
+		tokenNumbers = new int[SERVENT_COUNT];
 		
 		myServentInfo = new ServentInfo("localhost", serventPort);
 	}
+
+	public static ServentInfo getInfoById(int id) {
+		return allServents.get(id);
+	}
 	
+	public static int getIdByPort(int port) {
+	    for (int i = 0; i < allServents.size(); i++) {
+	        if (allServents.get(i).getListenerPort() == port) {
+	            return i;
+	        }
+	    }
+	    return -1;
+	}
+
+	public static boolean hasToken() {
+		return hasToken;
+	}
+
+	public static void setHasToken(boolean hasToken) {
+		AppConfig.hasToken = hasToken;
+	}
+
 }

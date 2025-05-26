@@ -50,6 +50,8 @@ public class ServentInitializer implements Runnable {
 			NewNodeMessage nnm = new NewNodeMessage(AppConfig.myServentInfo.getListenerPort(), someServentPort);
 			MessageUtil.sendMessage(nnm);
 		}
+
+		servent.failure.FailureDetector.getInstance().start();
 	}
 
 }
