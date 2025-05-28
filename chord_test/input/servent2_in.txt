@@ -1,0 +1,4 @@
+pause 12000
+download slika.jpg
+pause 5000
+stop

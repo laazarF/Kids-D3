@@ -9,10 +9,9 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
-import servent.message.AskGetMessage;
-import servent.message.PutMessage;
-import servent.message.WelcomeMessage;
+import servent.message.*;
 import servent.message.util.MessageUtil;
 
 /**
@@ -54,6 +53,7 @@ public class ChordState {
 	private List<ServentInfo> allNodeInfo;
 	
 	private Map<Integer, Integer> valueMap;
+	private final Map<Integer, String> fileValueMap = new ConcurrentHashMap<>();
 	
 	public ChordState() {
 		this.chordLevel = 1;
@@ -111,6 +111,9 @@ public class ChordState {
 	}
 	
 	public int getNextNodePort() {
+		if (successorTable[0] == null) {
+			throw new IllegalStateException("SuccessorTable[0] nije inicijalizovan. Verovatno node još uvek nije dobio WELCOME poruku.");
+		}
 		return successorTable[0].getListenerPort();
 	}
 	
@@ -319,6 +322,62 @@ public class ChordState {
 			PutMessage pm = new PutMessage(AppConfig.myServentInfo.getListenerPort(), nextNode.getListenerPort(), key, value);
 			MessageUtil.sendMessage(pm);
 		}
+	}
+
+	public void putFileValue(int key, String fileName, String base64) {
+		String combined = fileName + "::" + base64;
+		if (isKeyMine(key)) {
+			AppConfig.timestampedStandardPrint("Sačuvaj fajl lokalno za ključ " + key);
+			fileValueMap.put(key, combined);
+		} else {
+			ServentInfo nextNode = getNextNodeForKey(key);
+			Message pfm = new PutFileMessage(
+					AppConfig.myServentInfo.getListenerPort(),
+					nextNode.getListenerPort(),
+					key,
+					combined
+			);
+			MessageUtil.sendMessage(pfm);
+		}
+	}
+
+	public void getFileValue(int key, String requestedFileName) {
+		if (isKeyMine(key)) {
+			String base64Payload = fileValueMap.get(key);
+			if (base64Payload != null && base64Payload.contains("::")) {
+				String[] parts = base64Payload.split("::", 2);
+				String fileName = parts[0];
+				String base64 = parts[1];
+				AppConfig.timestampedStandardPrint("Fajl pronađen lokalno. Spremam odgovor...");
+				PendingFileDownloadInfo info = AppConfig.pendingDownloads.get(key);
+				TellGetMessage tell = new TellGetMessage(
+						AppConfig.myServentInfo.getListenerPort(),
+						info.getReceiverPort(),
+						AppConfig.myServentInfo.getListenerPort(),
+						key + "::" + fileName + "::" + base64
+				);
+				MessageUtil.sendMessage(tell);
+			} else {
+				AppConfig.timestampedErrorPrint("Fajl nije pronađen za ključ " + key);
+			}
+		} else {
+			ServentInfo next = getNextNodeForKey(key);
+			AppConfig.pendingDownloads.put(key, new PendingFileDownloadInfo(AppConfig.myServentInfo.getListenerPort()));
+			AskGetMessage msg = new AskGetMessage(
+					AppConfig.myServentInfo.getListenerPort(),
+					next.getListenerPort(),
+					String.valueOf(key)
+			);
+			MessageUtil.sendMessage(msg);
+		}
+	}
+
+	public boolean removeFileValue(int key) {
+	    if (fileValueMap.containsKey(key)) {
+	        fileValueMap.remove(key);
+	        return true;
+	    }
+	    return false;
 	}
 	
 	/**

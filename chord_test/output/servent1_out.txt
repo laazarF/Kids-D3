@@ -1,0 +1,41 @@
+18:05:51 - Starting servent [48|localhost|1200]
+18:05:51 - Pausing for 5000 ms
+18:05:52 - Sending message [48|1200|0||NEW_NODE|1100|28]
+18:05:52 - Got message [28|1100|0||WELCOME|1200|48]
+18:05:52 - Primio WELCOME poruku od 1100
+18:05:53 - Got message [28|1100|1||PING|1200|48]
+18:05:53 - Slanje PING ka 1100
+18:05:53 - ❌ Buddy za čvor 1100 je nevažeći (isti kao target ili self).
+18:05:53 - Sending message [48|1200|1||UPDATE|1100|28]
+18:05:54 - Got message [48|1200|2|1100|UPDATE|1200|48]
+18:05:54 - Primio UPDATE poruku od 1200
+18:05:54 - Sending message [48|1200|2||PONG|1100|28]
+18:05:54 - Sending message [48|1200|3||PING|1100|28]
+18:05:55 - Got message [28|1100|4||PONG|1200|48]
+18:05:55 - Primljen PONG od 1100
+18:05:56 - Pausing for 5000 ms
+18:05:56 - Slanje PING ka 1100
+18:05:56 - Got message [28|1100|5||PING|1200|48]
+18:05:57 - Sending message [48|1200|5||PING|1100|28]
+18:05:57 - Sending message [48|1200|4|600895367|ASK_GET|1100|28]
+18:05:57 - Sending message [48|1200|6||PONG|1100|28]
+18:05:58 - Got message [28|1100|6||PONG|1200|48]
+18:05:58 - Primljen PONG od 1100
+18:05:59 - Slanje PING ka 1100
+18:05:59 - Got message [28|1100|7||PING|1200|48]
+18:06:00 - Sending message [48|1200|7||PING|1100|28]
+18:06:00 - Got message [28|1100|8|600895367::slika.jpg|REMOVE_FILE|1200|48]
+18:06:01 - Sending message [48|1200|8||PONG|1100|28]
+18:06:01 - Sending message [28|1100|9|600895367::slika.jpg|REMOVE_FILE|1100|28]
+18:06:01 - Stopping...
+18:06:02 - Sending message [LEAVE] from 1200
+18:06:02 - Slanje PING ka 1100
+18:06:02 - Sending message [LEAVE] from 1200
+18:06:03 - Sending message [48|1200|12||PING|1100|28]
+18:06:05 - Slanje PING ka 1100
+18:06:05 - ❌ Buddy za čvor 1100 je nevažeći (isti kao target ili self).
+18:06:05 - Sending message [48|1200|13||PING|1100|28]
+18:06:08 - Slanje PING ka 1100
+18:06:09 - Sending message [48|1200|14||PING|1100|28]
+18:06:11 - Slanje PING ka 1100
+18:06:12 - Sending message [48|1200|15||PING|1100|28]

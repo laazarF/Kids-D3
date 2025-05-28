@@ -1,0 +1,29 @@
+18:06:01 - Starting servent [4|localhost|1300]
+18:06:01 - Pausing for 12000 ms
+18:06:01 - Sending message [4|1300|0||NEW_NODE|1100|28]
+18:06:02 - Got message [28|1100|11||WELCOME|1300|4]
+18:06:02 - Primio WELCOME poruku od 1100
+18:06:03 - Slanje PING ka 1100
+18:06:03 - ❌ Buddy za čvor 1100 je nevažeći (isti kao target ili self).
+18:06:04 - Sending message [4|1300|1||UPDATE|1100|28]
+18:06:04 - Sending message [4|1300|2||PING|1100|28]
+18:06:04 - Got message [28|1100|17||PONG|1300|4]
+18:06:04 - Primljen PONG od 1100
+18:06:05 - Got message [LEAVE] from 1100
+18:06:05 - Got message [28|1100|14||PING|1300|4]
+18:06:06 - Slanje PING ka 1100
+18:06:06 - Sending message [4|1300|3||PONG|1100|28]
+18:06:07 - Sending message [4|1300|4||PING|1100|28]
+18:06:07 - Got message [28|1100|20||PING|1300|4]
+18:06:08 - Sending message [4|1300|5||PONG|1100|28]
+18:06:09 - Slanje PING ka 1100
+18:06:09 - ❌ Buddy za čvor 1100 je nevažeći (isti kao target ili self).
+18:06:10 - Sending message [4|1300|6||PING|1100|28]
+18:06:12 - Slanje PING ka 1100
+18:06:13 - Pausing for 5000 ms
+18:06:13 - Sending message [4|1300|7||PING|1100|28]
+18:06:14 - Sending message [4|1300|8|600895367|ASK_GET|1100|28]
+18:06:15 - Slanje PING ka 1100
+18:06:15 - Sending message [4|1300|9||PING|1100|28]
+18:06:18 - Stopping...
+18:06:19 - Sending message [LEAVE] from 1300

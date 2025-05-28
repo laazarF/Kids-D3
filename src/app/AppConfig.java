@@ -7,10 +7,8 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Properties;
+import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * This class contains all the global application configuration stuff.
@@ -56,6 +54,8 @@ public class AppConfig {
 
 	public static int[] tokenNumbers;
 	public static List<ServentInfo> allServents = new ArrayList<>();
+	public static Map<Integer, PendingFileDownloadInfo> pendingDownloads = new ConcurrentHashMap<>();
+
 	
 	/**
 	 * Reads a config file. Should be called once at start of app.

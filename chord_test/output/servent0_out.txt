@@ -1,0 +1,73 @@
+18:05:41 - Starting servent [28|localhost|1100]
+18:05:41 - Pausing for 3000 ms
+18:05:41 - First node in Chord system.
+18:05:44 - Čekam da se inicijalizuje successor...
+18:05:45 - Čekam da se inicijalizuje successor...
+18:05:46 - Čekam da se inicijalizuje successor...
+18:05:47 - Čekam da se inicijalizuje successor...
+18:05:48 - Čekam da se inicijalizuje successor...
+18:05:49 - Čekam da se inicijalizuje successor...
+18:05:50 - Čekam da se inicijalizuje successor...
+18:05:51 - Čekam da se inicijalizuje successor...
+18:05:52 - Got message [48|1200|0||NEW_NODE|1100|28]
+18:05:52 - Slanje PING ka 1200
+18:05:52 - ❌ Buddy za čvor 1200 je nevažeći (isti kao target ili self).
+18:05:52 - Čekam da se inicijalizuje successor...
+18:05:52 - Sending message [28|1100|0||WELCOME|1200|48]
+18:05:53 - Sending message [28|1100|1||PING|1200|48]
+18:05:53 - Čekam da se inicijalizuje successor...
+18:05:53 - Got message [48|1200|1||UPDATE|1100|28]
+18:05:53 - Primio UPDATE poruku od 1200
+18:05:54 - Sending message [48|1200|2|1100|UPDATE|1200|48]
+18:05:54 - Got message [48|1200|2||PONG|1100|28]
+18:05:54 - Primljen PONG od 1200
+18:05:54 - Pausing for 5000 ms
+18:05:54 - Got message [48|1200|3||PING|1100|28]
+18:05:55 - Slanje PING ka 1200
+18:05:55 - Sending message [PUT_FILE|1100->1100] Key: 600895367, FileName: slika.jpg, [Base64 content hidden]
+18:05:55 - Got message [PUT_FILE|1100->1100] Key: 600895367, FileName: slika.jpg, [Base64 content hidden]
+18:05:55 - Primio PUT/PUT_FILE poruku
+18:05:55 - Sačuvaj fajl lokalno za ključ 600895367
+18:05:55 - Sending message [28|1100|4||PONG|1200|48]
+18:05:56 - Sending message [28|1100|5||PING|1200|48]
+18:05:57 - Got message [48|1200|5||PING|1100|28]
+18:05:57 - Got message [48|1200|4|600895367|ASK_GET|1100|28]
+18:05:57 - Fajl pronađen lokalno. Spremam odgovor...
+18:05:57 - Got message [48|1200|6||PONG|1100|28]
+18:05:57 - Primljen PONG od 1200
+18:05:58 - Slanje PING ka 1200
+18:05:58 - Sending message [28|1100|6||PONG|1200|48]
+18:05:59 - Pausing for 5000 ms
+18:05:59 - Sending message [28|1100|7||PING|1200|48]
+18:06:00 - Got message [48|1200|7||PING|1100|28]
+18:06:00 - Sending message [28|1100|8|600895367::slika.jpg|REMOVE_FILE|1200|48]
+18:06:01 - Got message [48|1200|8||PONG|1100|28]
+18:06:01 - Primljen PONG od 1200
+18:06:01 - Got message [28|1100|9|600895367::slika.jpg|REMOVE_FILE|1100|28]
+18:06:01 - Fajl uspešno uklonjen iz sistema: slika.jpg
+18:06:01 - Slanje PING ka 1200
+18:06:01 - Sending message [28|1100|9||PONG|1200|48]
+18:06:01 - Got message [4|1300|0||NEW_NODE|1100|28]
+18:06:02 - Sending message [28|1100|10||PING|1200|48]
+18:06:02 - Got message [LEAVE] from 1200
+18:06:02 - Got message [LEAVE] from 1200
+18:06:02 - Sending message [28|1100|11||WELCOME|1300|4]
+18:06:03 - Got message [48|1200|12||PING|1100|28]
+18:06:04 - Got message [4|1300|1||UPDATE|1100|28]
+18:06:04 - Primio UPDATE poruku od 1300
+18:06:04 - Sending message [28|1100|12||PONG|1200|48]
+18:06:04 - Slanje PING ka 1300
+18:06:04 - Slanje PING ka 1200
+18:06:04 - Got message [4|1300|2||PING|1100|28]
+18:06:04 - Stopping...
+18:06:04 - Sending message [28|1100|17||PONG|1300|4]
+18:06:05 - Sending message [LEAVE] from 1100
+18:06:05 - Sending message [LEAVE] from 1100
+18:06:05 - Sending message [4|1300|13|1100|UPDATE|1200|48]
+18:06:05 - Sending message [BUDDY_PING] from 1100 to 1200 (checking 1300)
+18:06:05 - Sending message [28|1100|15||PING|1200|48]
+18:06:05 - Sending message [28|1100|14||PING|1300|4]
+18:06:07 - Slanje PING ka 1300
+18:06:07 - Slanje PING ka 1200
+18:06:07 - Sending message [28|1100|20||PING|1300|4]
+18:06:08 - Sending message [28|1100|21||PING|1200|48]

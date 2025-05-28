@@ -58,6 +58,10 @@ public class SimpleServentListener implements Runnable, Cancellable {
 				 * because that way is much simpler and less error prone.
 				 */
 				switch (clientMessage.getMessageType()) {
+					case PUT:
+					case PUT_FILE:
+						messageHandler = new PutHandler(clientMessage);
+						break;
 					case NEW_NODE:
 						messageHandler = new NewNodeHandler(clientMessage);
 						break;
@@ -69,9 +73,6 @@ public class SimpleServentListener implements Runnable, Cancellable {
 						break;
 					case UPDATE:
 						messageHandler = new UpdateHandler(clientMessage);
-						break;
-					case PUT:
-						messageHandler = new PutHandler(clientMessage);
 						break;
 					case ASK_GET:
 						messageHandler = new AskGetHandler(clientMessage);
@@ -98,6 +99,9 @@ public class SimpleServentListener implements Runnable, Cancellable {
 						break;
 					case TOKEN_MUTEX:
 						messageHandler = new TokenMessageHandler(clientMessage);
+						break;
+					case REMOVE_FILE:
+						messageHandler = new RemoveFileHandler(clientMessage);
 						break;
 				}
 				

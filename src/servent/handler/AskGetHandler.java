@@ -24,19 +24,14 @@ public class AskGetHandler implements MessageHandler {
 			try {
 				int key = Integer.parseInt(clientMessage.getMessageText());
 				if (AppConfig.chordState.isKeyMine(key)) {
-					Map<Integer, Integer> valueMap = AppConfig.chordState.getValueMap(); 
-					int value = -1;
-					
-					if (valueMap.containsKey(key)) {
-						value = valueMap.get(key);
-					}
-					
-					TellGetMessage tgm = new TellGetMessage(AppConfig.myServentInfo.getListenerPort(), clientMessage.getSenderPort(),
-															key, value);
-					MessageUtil.sendMessage(tgm);
+					AppConfig.chordState.getFileValue(key, "unknown");
 				} else {
 					ServentInfo nextNode = AppConfig.chordState.getNextNodeForKey(key);
-					AskGetMessage agm = new AskGetMessage(clientMessage.getSenderPort(), nextNode.getListenerPort(), clientMessage.getMessageText());
+					AskGetMessage agm = new AskGetMessage(
+							clientMessage.getSenderPort(),
+							nextNode.getListenerPort(),
+							clientMessage.getMessageText()
+					);
 					MessageUtil.sendMessage(agm);
 				}
 			} catch (NumberFormatException e) {

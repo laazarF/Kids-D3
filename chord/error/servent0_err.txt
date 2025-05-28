@@ -1,9 +1,0 @@
-17:00:35 - Mutual exclusion not initialized or token not received yet. Skipping requestCS for now.
-17:00:35 - Mutual exclusion not initialized or token not received yet. Skipping requestCS for now.
-17:00:38 - Sumnjamo da je čvor 1200 pao. Pitaćemo buddy-ja da proveri.
-17:00:46 - Mutual exclusion not initialized or token not received yet. Skipping requestCS for now.
-17:00:46 - Mutual exclusion not initialized or token not received yet. Skipping requestCS for now.
-17:00:55 - Mutual exclusion not initialized or token not received yet. Skipping requestCS for now.
-17:00:55 - Mutual exclusion not initialized or token not received yet. Skipping requestCS for now.
-17:01:04 - Mutual exclusion not initialized or token not received yet. Skipping requestCS for now.
-17:01:04 - Mutual exclusion not initialized or token not received yet. Skipping requestCS for now.

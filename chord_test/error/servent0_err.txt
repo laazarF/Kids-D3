@@ -1,0 +1,6 @@
+18:05:52 - Mutual exclusion not initialized or token not received yet. Skipping requestCS for now.
+18:05:52 - Mutual exclusion not initialized or token not received yet. Skipping requestCS for now.
+18:05:52 - Sumnjamo da je čvor 1200 pao. Pitaćemo buddy-ja da proveri.
+18:06:01 - Mutual exclusion not initialized or token not received yet. Skipping requestCS for now.
+18:06:01 - Mutual exclusion not initialized or token not received yet. Skipping requestCS for now.
+18:06:04 - Sumnjamo da je čvor 1300 pao. Pitaćemo buddy-ja da proveri.

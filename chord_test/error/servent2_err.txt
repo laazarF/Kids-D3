@@ -1,0 +1,3 @@
+18:06:03 - Sumnjamo da je čvor 1100 pao. Pitaćemo buddy-ja da proveri.
+18:06:09 - Sumnjamo da je čvor 1100 pao. Pitaćemo buddy-ja da proveri.
+18:06:15 - Čvor 1100 potvrđeno pao. Pokrećemo LEAVE za njega.
