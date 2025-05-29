@@ -41,14 +41,15 @@ public class UploadCommand implements CLICommand {
         try {
             byte[] content = Files.readAllBytes(path);
             String base64 = Base64.getEncoder().encodeToString(content);
-            int key = Math.abs(args.hashCode()); // hash filename kao key
-            String value = args + "::" + base64;
+            int key = Math.abs(args.hashCode()) % AppConfig.SERVENT_COUNT;
 
             int ownerPort = AppConfig.chordState.getNextNodeForKey(key).getListenerPort();
             Message putMsg = new PutFileMessage(
                     AppConfig.myServentInfo.getListenerPort(),
                     ownerPort,
-                    key, value
+                    key,
+                    args,       // <- ovo je fileName
+                    base64
             );
             MessageUtil.sendMessage(putMsg);
         } catch (IOException e) {

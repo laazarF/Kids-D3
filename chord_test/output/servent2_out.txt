@@ -1,29 +1,113 @@
-18:06:01 - Starting servent [4|localhost|1300]
-18:06:01 - Pausing for 12000 ms
-18:06:01 - Sending message [4|1300|0||NEW_NODE|1100|28]
-18:06:02 - Got message [28|1100|11||WELCOME|1300|4]
-18:06:02 - Primio WELCOME poruku od 1100
-18:06:03 - Slanje PING ka 1100
-18:06:03 - ❌ Buddy za čvor 1100 je nevažeći (isti kao target ili self).
-18:06:04 - Sending message [4|1300|1||UPDATE|1100|28]
-18:06:04 - Sending message [4|1300|2||PING|1100|28]
-18:06:04 - Got message [28|1100|17||PONG|1300|4]
-18:06:04 - Primljen PONG od 1100
-18:06:05 - Got message [LEAVE] from 1100
-18:06:05 - Got message [28|1100|14||PING|1300|4]
-18:06:06 - Slanje PING ka 1100
-18:06:06 - Sending message [4|1300|3||PONG|1100|28]
-18:06:07 - Sending message [4|1300|4||PING|1100|28]
-18:06:07 - Got message [28|1100|20||PING|1300|4]
-18:06:08 - Sending message [4|1300|5||PONG|1100|28]
-18:06:09 - Slanje PING ka 1100
-18:06:09 - ❌ Buddy za čvor 1100 je nevažeći (isti kao target ili self).
-18:06:10 - Sending message [4|1300|6||PING|1100|28]
-18:06:12 - Slanje PING ka 1100
-18:06:13 - Pausing for 5000 ms
-18:06:13 - Sending message [4|1300|7||PING|1100|28]
-18:06:14 - Sending message [4|1300|8|600895367|ASK_GET|1100|28]
-18:06:15 - Slanje PING ka 1100
-18:06:15 - Sending message [4|1300|9||PING|1100|28]
-18:06:18 - Stopping...
-18:06:19 - Sending message [LEAVE] from 1300
+21:34:46 - Starting servent [4|localhost|1300]
+21:34:46 - Pausing for 10000 ms
+21:34:47 - Sending message [4|1300|0||NEW_NODE|1100|28]
+21:34:48 - Got message [28|1100|7||WELCOME|1300|4]
+21:34:48 - Primio WELCOME poruku od 1100
+21:34:49 - Sending message [4|1300|1||UPDATE|1100|28]
+21:34:50 - Got message [BACKUP_FILE|1100->1300] Key: 1, FileName: slika0.jpg
+21:34:50 - 📦 Backup fajla sačuvan: slika0.jpg (ključ: 1)
+21:34:51 - Got message [4|1300|10|1100,1200|UPDATE|1300|4]
+21:34:51 - Primio UPDATE poruku od 1300
+21:34:51 - ♻️ Preuzimam backup fajl kao vlasnik: 1
+21:34:51 - Slanje PING ka 1200
+21:34:51 - Slanje PING ka 1100
+21:34:52 - Sending message [BUDDY_PING] from 1300 to 1200 (checking 1100)
+21:34:52 - Sending message [4|1300|3||PING|1100|28]
+21:34:52 - Sending message [4|1300|2||PING|1200|48]
+21:34:52 - Sending message [BUDDY_PING] from 1300 to 1100 (checking 1200)
+21:34:52 - Got message [28|1100|15||PONG|1300|4]
+21:34:52 - Primljen PONG od 1100
+21:34:53 - Got message [28|1100|16||LIST_FILES_REQUEST|1300|4]
+21:34:53 - Got message [48|1200|13||PONG|1300|4]
+21:34:53 - Primljen PONG od 1200
+21:34:54 - Got message [48|1200|15||PING|1300|4]
+21:34:54 - Sending message [4|1300|6|Fajlovi na čvoru 1300:
+- slika0.jpg
+|LIST_FILES_RESPONSE|1100|28]
+21:34:54 - Slanje PING ka 1200
+21:34:54 - Slanje PING ka 1100
+21:34:54 - Got message [28|1100|19||PING|1300|4]
+21:34:54 - Sending message [4|1300|9||PING|1100|28]
+21:34:54 - Sending message [4|1300|8||PING|1200|48]
+21:34:55 - Sending message [4|1300|10||PONG|1100|28]
+21:34:55 - Sending message [4|1300|7||PONG|1200|48]
+21:34:55 - Got message [48|1200|18||PONG|1300|4]
+21:34:55 - Primljen PONG od 1200
+21:34:56 - Pausing for 1000 ms
+21:34:56 - Got message [28|1100|21||PONG|1300|4]
+21:34:56 - Primljen PONG od 1100
+21:34:57 - Got message [48|1200|21||PING|1300|4]
+21:34:57 - 🔍 Proveravam vlasništvo nad ključem 1...
+21:34:57 - ✅ Vi ste vlasnik ključa 1. Uklanjam datoteku...
+21:34:57 - Slanje PING ka 1200
+21:34:57 - Slanje PING ka 1100
+21:34:57 - Pausing for 5000 ms
+21:34:57 - Sending message [4|1300|11||LIST_FILES_REQUEST|1100|28]
+21:34:57 - Sending message [4|1300|15|1::slika0.jpg|REMOVE_FILE|1300|4]
+21:34:57 - Got message [4|1300|15|1::slika0.jpg|REMOVE_FILE|1300|4]
+21:34:57 - 🧾 Lokalne vrednosti: myId = 4
+21:34:57 - ⚙️ Proveravam vlasništvo nad ključem 1
+21:34:57 - 🔍 isKeyMine proveravam: key=1, myId=4, predId=48
+21:34:57 - ⚙️ isKeyMine = true
+21:34:57 - ✅ Vi ste vlasnik ključa 1. Uklanjam datoteku...
+21:34:57 - 🗑️ Fajl uspešno uklonjen iz sistema: slika0.jpg
+21:34:58 - Sending message [4|1300|14||PING|1100|28]
+21:34:58 - Sending message [4|1300|13||PING|1200|48]
+21:34:58 - Got message [28|1100|25|Profil je privatan.|LIST_FILES_RESPONSE|1300|4]
+21:34:58 - Odgovor na list_files:
+Profil je privatan.
+21:34:58 - Sending message [4|1300|12||PONG|1200|48]
+21:34:59 - Got message [48|1200|23||PONG|1300|4]
+21:34:59 - Primljen PONG od 1200
+21:34:59 - Got message [28|1100|26||PONG|1300|4]
+21:34:59 - Primljen PONG od 1100
+21:34:59 - Got message [28|1100|27||LIST_FILES_REQUEST|1300|4]
+21:35:00 - Slanje PING ka 1200
+21:35:00 - Slanje PING ka 1100
+21:35:00 - Got message [48|1200|25||PING|1300|4]
+21:35:00 - Sending message [4|1300|18||PING|1100|28]
+21:35:01 - Sending message [4|1300|16|Fajlovi na čvoru 1300:
+|LIST_FILES_RESPONSE|1100|28]
+21:35:01 - Sending message [4|1300|17||PING|1200|48]
+21:35:01 - Sending message [4|1300|19||PONG|1200|48]
+21:35:01 - Got message [28|1100|29||PONG|1300|4]
+21:35:01 - Primljen PONG od 1100
+21:35:02 - Got message [48|1200|28||PONG|1300|4]
+21:35:02 - Primljen PONG od 1200
+21:35:02 - Got message [LEAVE] from 1200
+21:35:02 - Pausing for 5000 ms
+21:35:03 - Sending message [4|1300|20||LIST_FILES_REQUEST|1100|28]
+21:35:03 - Slanje PING ka 1200
+21:35:03 - Slanje PING ka 1100
+21:35:03 - Got message [48|1200|30||PING|1300|4]
+21:35:03 - Sending message [4|1300|22||PING|1100|28]
+21:35:04 - Sending message [4|1300|23||PONG|1200|48]
+21:35:04 - Sending message [4|1300|21||PING|1200|48]
+21:35:04 - Got message [28|1100|34||PONG|1300|4]
+21:35:04 - Primljen PONG od 1100
+21:35:04 - Got message [LEAVE] from 1100
+21:35:04 - Got message [28|1100|31|Profil je privatan.|LIST_FILES_RESPONSE|1300|4]
+21:35:04 - Odgovor na list_files:
+Profil je privatan.
+21:35:06 - Got message [48|1200|32||PING|1300|4]
+21:35:06 - Got message [BUDDY_PING] from 1200 to 1300 (checking 1100)
+21:35:06 - Buddy pingujem čvor 1100 po zahtevu od 1200
+21:35:06 - Slanje PING ka 1200
+21:35:06 - Slanje PING ka 1100
+21:35:06 - Sending message [BUDDY_PING] from 1300 to 1100 (checking 1200)
+21:35:07 - Sending message [4|1300|24||PONG|1200|48]
+21:35:07 - Sending message [4|1300|27||PING|1100|28]
+21:35:07 - Stopping...
+21:35:07 - Sending message [4|1300|26||PING|1200|48]
+21:35:07 - Sending message [4|1300|25||PING|1100|28]
+21:35:08 - Sending message [LEAVE] from 1300
+21:35:08 - Sending message [LEAVE] from 1300
+21:35:09 - Slanje PING ka 1200
+21:35:09 - Slanje PING ka 1100
+21:35:10 - Sending message [4|1300|32||PING|1100|28]
+21:35:10 - Sending message [4|1300|31||PING|1200|48]
+21:35:10 - Sending message [BUDDY_PING] from 1300 to 1200 (checking 1100)
+21:35:12 - Slanje PING ka 1200
+21:35:12 - Slanje PING ka 1100
+21:35:13 - Sending message [4|1300|34||PING|1200|48]
+21:35:13 - Sending message [4|1300|35||PING|1100|28]

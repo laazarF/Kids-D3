@@ -1,6 +1,7 @@
-18:05:52 - Mutual exclusion not initialized or token not received yet. Skipping requestCS for now.
-18:05:52 - Mutual exclusion not initialized or token not received yet. Skipping requestCS for now.
-18:05:52 - Sumnjamo da je čvor 1200 pao. Pitaćemo buddy-ja da proveri.
-18:06:01 - Mutual exclusion not initialized or token not received yet. Skipping requestCS for now.
-18:06:01 - Mutual exclusion not initialized or token not received yet. Skipping requestCS for now.
-18:06:04 - Sumnjamo da je čvor 1300 pao. Pitaćemo buddy-ja da proveri.
+21:34:37 - Mutual exclusion not initialized or token not received yet. Skipping requestCS for now.
+21:34:37 - Mutual exclusion not initialized or token not received yet. Skipping requestCS for now.
+21:34:40 - Sumnjamo da je čvor 1200 pao. Pitaćemo buddy-ja da proveri.
+21:34:47 - Mutual exclusion not initialized or token not received yet. Skipping requestCS for now.
+21:34:47 - Mutual exclusion not initialized or token not received yet. Skipping requestCS for now.
+21:34:47 - Nema follow zahteva od porta 1300
+21:34:54 - ❌ Niste vlasnik datoteke. Samo vlasnik može da je ukloni.

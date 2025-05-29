@@ -37,12 +37,17 @@ public class RemoveFileHandler implements MessageHandler {
             return;
         }
 
+        AppConfig.timestampedStandardPrint("🧾 Lokalne vrednosti: myId = " + AppConfig.myServentInfo.getChordId());
+        AppConfig.timestampedStandardPrint("⚙️ Proveravam vlasništvo nad ključem " + key);
+        AppConfig.timestampedStandardPrint("🔍 isKeyMine proveravam: key=" + key + ", myId=" + AppConfig.myServentInfo.getChordId() + ", predId=" + AppConfig.chordState.getPredecessor().getChordId());
+        AppConfig.timestampedStandardPrint("⚙️ isKeyMine = " + AppConfig.chordState.isKeyMine(key));
         if (AppConfig.chordState.isKeyMine(key)) {
+            AppConfig.timestampedStandardPrint("✅ Vi ste vlasnik ključa " + key + ". Uklanjam datoteku...");
             boolean removed = AppConfig.chordState.removeFileValue(key);
             if (removed) {
-                AppConfig.timestampedStandardPrint("Fajl uspešno uklonjen iz sistema: " + filename);
+                AppConfig.timestampedStandardPrint("🗑️ Fajl uspešno uklonjen iz sistema: " + filename);
             } else {
-                AppConfig.timestampedErrorPrint("Fajl nije pronađen kod ovog čvora: " + filename);
+                AppConfig.timestampedErrorPrint("⚠️ Fajl nije pronađen kod ovog čvora: " + filename);
             }
         } else {
             // Prosleđivanje sledećem čvoru u ruti

@@ -103,6 +103,18 @@ public class SimpleServentListener implements Runnable, Cancellable {
 					case REMOVE_FILE:
 						messageHandler = new RemoveFileHandler(clientMessage);
 						break;
+					case FOLLOW_REQUEST:
+						messageHandler = new FollowRequestHandler(clientMessage);
+						break;
+					case LIST_FILES_REQUEST:
+						messageHandler = new ListFilesRequestHandler(clientMessage);
+						break;
+					case LIST_FILES_RESPONSE:
+						messageHandler = new ListFilesResponseHandler(clientMessage);
+						break;
+					case BACKUP_FILE:
+						messageHandler = new BackupFileHandler(clientMessage);
+						break;
 				}
 				
 				threadPool.submit(messageHandler);

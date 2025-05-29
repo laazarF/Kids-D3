@@ -4,11 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.net.UnknownHostException;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
 import servent.message.*;
@@ -54,6 +50,12 @@ public class ChordState {
 	
 	private Map<Integer, Integer> valueMap;
 	private final Map<Integer, String> fileValueMap = new ConcurrentHashMap<>();
+
+	private Set<Integer> followers = ConcurrentHashMap.newKeySet();        // portovi koji nas prate
+	private Set<Integer> pendingFollowRequests = ConcurrentHashMap.newKeySet(); // još nisu prihvaćeni
+
+	private volatile boolean isPublic = true;  // true = public, false = private
+	private final Map<Integer, String> backupFileMap = new ConcurrentHashMap<>();
 	
 	public ChordState() {
 		this.chordLevel = 1;
@@ -109,6 +111,10 @@ public class ChordState {
 	public ServentInfo[] getSuccessorTable() {
 		return successorTable;
 	}
+
+	public ServentInfo getSuccessorInfo() {
+		return successorTable[0];
+	}
 	
 	public int getNextNodePort() {
 		if (successorTable[0] == null) {
@@ -155,7 +161,7 @@ public class ChordState {
 		
 		int predecessorChordId = predecessorInfo.getChordId();
 		int myChordId = AppConfig.myServentInfo.getChordId();
-		
+
 		if (predecessorChordId < myChordId) { //no overflow
 			if (key <= myChordId && key > predecessorChordId) {
 				return true;
@@ -325,17 +331,17 @@ public class ChordState {
 	}
 
 	public void putFileValue(int key, String fileName, String base64) {
-		String combined = fileName + "::" + base64;
 		if (isKeyMine(key)) {
 			AppConfig.timestampedStandardPrint("Sačuvaj fajl lokalno za ključ " + key);
-			fileValueMap.put(key, combined);
+			fileValueMap.put(key, fileName + "::" + base64);
 		} else {
 			ServentInfo nextNode = getNextNodeForKey(key);
 			Message pfm = new PutFileMessage(
 					AppConfig.myServentInfo.getListenerPort(),
 					nextNode.getListenerPort(),
 					key,
-					combined
+					fileName,
+					base64
 			);
 			MessageUtil.sendMessage(pfm);
 		}
@@ -370,6 +376,10 @@ public class ChordState {
 			);
 			MessageUtil.sendMessage(msg);
 		}
+	}
+
+	public Map<Integer, String> getFileValueMap() {
+		return fileValueMap;
 	}
 
 	public boolean removeFileValue(int key) {
@@ -439,6 +449,47 @@ public class ChordState {
 		}
 
 		updateSuccessorTable();
+	}
+
+	public void storeFileBackup(int key, String fileName, String base64) {
+		backupFileMap.put(key, fileName + "::" + base64);
+	}
+
+	public void restoreBackupFiles() {
+		for (Map.Entry<Integer, String> entry : new HashMap<>(backupFileMap).entrySet()) {
+			int key = entry.getKey();
+			if (isKeyMine(key)) {
+				AppConfig.timestampedStandardPrint("♻️ Preuzimam backup fajl kao vlasnik: " + key);
+				fileValueMap.put(key, entry.getValue());
+				backupFileMap.remove(key);
+			}
+		}
+	}
+
+	public boolean isPublic() {
+		return isPublic;
+	}
+
+	public void setPublic(boolean isPublic) {
+		this.isPublic = isPublic;
+	}
+
+	public Set<Integer> getFollowers() {
+		return followers;
+	}
+
+	public Set<Integer> getPendingFollowRequests() {
+		return pendingFollowRequests;
+	}
+
+	public void addPendingRequest(int port) {
+		pendingFollowRequests.add(port);
+	}
+
+	public void acceptFollower(int port) {
+		if (pendingFollowRequests.remove(port)) {
+			followers.add(port);
+		}
 	}
 
 }

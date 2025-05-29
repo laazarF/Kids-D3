@@ -1,6 +1,22 @@
 pause 3000
-upload slika.jpg
-pause 5000
-remove_file slika.jpg
+visibility private
+pause 2000
+upload slika0.jpg
+pause 4000
+pending
+pause 2000
+accept 1200
+pause 2000
+accept 1300
+pause 3000
+list_files 127.0.0.1:1200
+pause 2000
+list_files 127.0.0.1:1300
+pause 2000
+remove_file slika0.jpg
+pause 2000
+list_files 127.0.0.1:1200
+pause 2000
+list_files 127.0.0.1:1300
 pause 5000
 stop

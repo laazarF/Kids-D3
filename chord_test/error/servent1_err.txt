@@ -1,3 +1,5 @@
-18:05:53 - Sumnjamo da je čvor 1100 pao. Pitaćemo buddy-ja da proveri.
-18:06:05 - Sumnjamo da je čvor 1100 pao. Pitaćemo buddy-ja da proveri.
-18:06:11 - Čvor 1100 potvrđeno pao. Pokrećemo LEAVE za njega.
+21:34:38 - Sumnjamo da je čvor 1100 pao. Pitaćemo buddy-ja da proveri.
+21:34:53 - Sumnjamo da je čvor 1300 pao. Pitaćemo buddy-ja da proveri.
+21:35:05 - Sumnjamo da je čvor 1100 pao. Pitaćemo buddy-ja da proveri.
+21:35:05 - Sumnjamo da je čvor 1300 pao. Pitaćemo buddy-ja da proveri.
+21:35:11 - Čvor 1100 potvrđeno pao. Pokrećemo LEAVE za njega.

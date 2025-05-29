@@ -1,10 +1,10 @@
 package servent.handler;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 import app.AppConfig;
 import app.ServentInfo;
+import servent.backup.BackupManager;
 import servent.message.Message;
 import servent.message.MessageType;
 import servent.message.UpdateMessage;
@@ -37,6 +37,31 @@ public class UpdateHandler implements MessageHandler {
 				Message nextUpdate = new UpdateMessage(clientMessage.getSenderPort(), AppConfig.chordState.getNextNodePort(),
 						newMessageText);
 				MessageUtil.sendMessage(nextUpdate);
+
+				// 🔁 Pozivanje slanja backup fajlova ka successor i predecessor
+				ServentInfo predecessor = AppConfig.chordState.getPredecessor();
+				ServentInfo successor = AppConfig.chordState.getSuccessorTable()[0];
+
+				if (predecessor != null && !predecessor.equals(AppConfig.myServentInfo)) {
+					BackupManager.sendFileBackup(predecessor.getListenerPort());
+				}
+				if (successor != null && !successor.equals(AppConfig.myServentInfo)) {
+					BackupManager.sendFileBackup(successor.getListenerPort());
+				}
+
+				// ♻️ Restore backup fajlova ako je čvor postao novi vlasnik
+				AppConfig.chordState.restoreBackupFiles();
+				Map<Integer, String> localFiles = AppConfig.chordState.getFileValueMap();
+				Set<Integer> keysToRemove = new HashSet<>();
+				for (Integer key : localFiles.keySet()) {
+					if (!AppConfig.chordState.isKeyMine(key)) {
+						AppConfig.timestampedStandardPrint("🧹 Više nisam vlasnik ključa " + key + ", brišem lokalno...");
+						keysToRemove.add(key);
+					}
+				}
+				for (Integer key : keysToRemove) {
+					localFiles.remove(key);
+				}
 			} else {
 				String messageText = clientMessage.getMessageText();
 				String[] ports = messageText.split(",");
@@ -46,6 +71,32 @@ public class UpdateHandler implements MessageHandler {
 					allNodes.add(new ServentInfo("localhost", Integer.parseInt(port)));
 				}
 				AppConfig.chordState.addNodes(allNodes);
+
+				// 🔁 Pozivanje slanja backup fajlova ka successor i predecessor
+				ServentInfo predecessor = AppConfig.chordState.getPredecessor();
+				ServentInfo successor = AppConfig.chordState.getSuccessorTable()[0];
+
+				if (predecessor != null && !predecessor.equals(AppConfig.myServentInfo)) {
+					BackupManager.sendFileBackup(predecessor.getListenerPort());
+				}
+				if (successor != null && !successor.equals(AppConfig.myServentInfo)) {
+					BackupManager.sendFileBackup(successor.getListenerPort());
+				}
+
+				// ♻️ Restore backup fajlova ako je čvor postao novi vlasnik
+				AppConfig.chordState.restoreBackupFiles();
+				Map<Integer, String> localFiles = AppConfig.chordState.getFileValueMap();
+				Set<Integer> keysToRemove = new HashSet<>();
+				for (Integer key : localFiles.keySet()) {
+					if (!AppConfig.chordState.isKeyMine(key)) {
+						AppConfig.timestampedStandardPrint("🧹 Više nisam vlasnik ključa " + key + ", brišem lokalno...");
+						keysToRemove.add(key);
+					}
+				}
+				for (Integer key : keysToRemove) {
+					localFiles.remove(key);
+				}
+
 			}
 		} else {
 			AppConfig.timestampedErrorPrint("Update message handler got message that is not UPDATE");

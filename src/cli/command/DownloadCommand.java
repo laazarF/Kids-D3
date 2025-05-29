@@ -23,7 +23,7 @@ public class DownloadCommand implements CLICommand {
             }
         }
 
-        int key = Math.abs(args.hashCode());
+        int key = Math.abs(args.hashCode()) % AppConfig.SERVENT_COUNT;
         Message askMsg = new AskGetMessage(
                 AppConfig.myServentInfo.getListenerPort(),
                 AppConfig.chordState.getNextNodePort(),
